@@ -7,7 +7,12 @@ class StudentsService:
         self.studentsRepository = StudentsRepository()
 
     def get_all(self):
-        return [StudentModel(student) for student in self.studentsRepository.get_all()]
+        student_records = self.studentsRepository.get_all()
+        return [StudentModel(**student) for student in student_records]
+
+    def get_by_id(self, id):
+        student_records = self.studentsRepository.get_by_id(id)
+        return [StudentModel(**student) for student in student_records]
 
     def insert(self, student: StudentModel):
         self.studentsRepository.insert(student.first_name, student.last_name, student.email)
@@ -15,5 +20,5 @@ class StudentsService:
     def update(self, student: StudentModel):
         self.studentsRepository.update(student.id, student.first_name, student.last_name, student.email)
 
-    def delete(self, student: StudentModel):
-        self.studentsRepository.delete(student.id)
+    def delete(self, id):
+        self.studentsRepository.delete(id)

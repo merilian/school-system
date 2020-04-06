@@ -10,6 +10,10 @@ class StudentsRepository:
         rows = [row for row in execute_query(StudentQueries.get_all())]
         return rows
 
+    def get_by_id(self, id):
+        rows = [row for row in execute_query(StudentQueries.get_by_id(), (id,))]
+        return rows
+
     def insert(self, first_name, last_name, email):
         execute_query(StudentQueries.insert(), (first_name, last_name, email))
 

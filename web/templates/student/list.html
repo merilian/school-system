@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block app_content %}
+    <table class="table">
+    <tr>
+        <th>#</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Actions</th>
+    </tr>
+    {% for student in students %}
+        <tr>
+            <td>{{ student.id }}</td>
+            <td>{{ student.first_name }}</td>
+            <td>{{ student.last_name }}</td>
+            <td>{{ student.email }}</td>
+            <td>
+                <div class="btn-group btn-group-sm" role="group" aria-label="Vertical button group">
+                    <a class="btn btn-default" href="\student\update\{{ student.id }}">Update</a>
+                    <a class="btn btn-default" href="\student\delete\{{ student.id }}">Delete</a>
+                </div>
+            </td>
+        </tr>
+    {% endfor %}
+    </table>
+{% endblock %}

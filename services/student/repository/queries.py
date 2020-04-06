@@ -4,6 +4,10 @@ class StudentQueries:
         return """SELECT * FROM Student"""
 
     @staticmethod
+    def get_by_id():
+        return """SELECT * FROM Student WHERE id = %s"""
+
+    @staticmethod
     def insert():
         return """INSERT INTO Student (first_name, last_name, email) VALUES (%s, %s, %s)"""
 

@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, redirect, request
+from flask import Blueprint, render_template, redirect, request, abort
 from services.student.student_service import StudentsService
 from services.student.student_model import StudentModel
 
@@ -22,8 +22,7 @@ def update_student(id):
     if request.method == 'GET':
         students = students_service.get_by_id(id)
         if len(students) != 1:
-            # return redirect('404')
-            pass
+            abort(404)
         return render_template('/student/form.html', student=students[0], post_link='/v1/student/update/'+str(id))
     else:
         student_to_update = StudentModel(**request.form)

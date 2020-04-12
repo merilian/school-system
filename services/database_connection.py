@@ -14,7 +14,7 @@ connection_config = {
 
 
 def init_docker_db_config():
-    connection_config['host'] = 'students_db'
+    connection_config['host'] = 'school_system_db'
 
 
 def get_db_connection():

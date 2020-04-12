@@ -2,7 +2,7 @@ from services.database_connection import execute_query
 from .queries import StudentQueries
 
 
-class StudentsRepository:
+class StudentRepository:
     def __init__(self):
         pass
 

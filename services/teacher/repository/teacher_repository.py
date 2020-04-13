@@ -10,6 +10,10 @@ class TeacherRepository:
         rows = [row for row in execute_query(TeacherQueries.get_all())]
         return rows
 
+    def get_all_with_student_count(self):
+        rows = [row for row in execute_query(TeacherQueries.get_all_with_student_count())]
+        return rows
+
     def insert(self, first_name, last_name, email):
         execute_query(TeacherQueries.insert(), (first_name, last_name, email))
 
